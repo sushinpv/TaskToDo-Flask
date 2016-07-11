@@ -1,0 +1,21 @@
+<form method="POST" action="/add/">
+ <input type="text" name="taskname" placeholder="Task Name"/>
+ <input type="text" name="taskdes" placeholder="Task Description"/>
+ <input type="text" name="taskproirity" placeholder="Task Priority"/>
+ <input type="text" name="taskdate" placeholder="Task Date"/>
+ <input type="text" name="taskproject" placeholder="Task Project Name"/>
+ <input type="text" name="taskstatus" placeholder="Task Status"/>
+ <button type="submit">ADD</button>
+</form>
+
+<ul>
+	{% for task in tasks %}
+	<li>{{task.taskname}} -- {{task.taskdes}} -- {{task.taskproirity}} -- {{task.taskdate}} -- {{task.taskproject}} -- {{task.taskstatus}} -- {{task.status}} </li>
+	<a href="/delete/{{task.id}}">Delete</a>
+	<a href="/edit/{{task.id}}">Edit</a>
+	<a href="/finish/{{task.id}}">Finish</a>
+	{% else %}
+		No tasks found
+	{% endfor %}
+</ul>
+
